@@ -10,8 +10,7 @@
 
     $req = $bdd->prepare("SELECT title, DATE_FORMAT(date, '%d/%m/%Y') as mydate,description,price FROM products WHERE id=?");
     $req->execute([$id]);
-    $don=$req->fetch();
-    if(!$don)
+    if(!$don=$req->fetch())
     {
         $req->closeCursor();
         header("LOCATION:index.php");
