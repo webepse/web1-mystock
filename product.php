@@ -1,11 +1,22 @@
 <?php
     require "connexion.php";
 
-    $id = htmlspecialchars($_GET['id']);
+    if(isset($_GET['id']))
+    {
+        $id = htmlspecialchars($_GET['id']);
+    }else{
+        header("LOCATION:index.php");
+    }
 
     $req = $bdd->prepare("SELECT title, DATE_FORMAT(date, '%d/%m/%Y') as mydate,description,price FROM products WHERE id=?");
     $req->execute([$id]);
     $don=$req->fetch();
+    if(!$don)
+    {
+        $req->closeCursor();
+        header("LOCATION:index.php");
+    }
+    $req->closeCursor();
 
 ?>
 
