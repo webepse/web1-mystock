@@ -1,5 +1,4 @@
 <?php
-    require "connexion.php";
 
     if(isset($_GET['id']))
     {
@@ -8,6 +7,7 @@
         header("LOCATION:index.php");
     }
 
+    require "connexion.php";
     $req = $bdd->prepare("SELECT title, DATE_FORMAT(date, '%d/%m/%Y') as mydate,description,price FROM products WHERE id=?");
     $req->execute([$id]);
     if(!$don=$req->fetch())
