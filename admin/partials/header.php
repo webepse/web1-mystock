@@ -10,7 +10,7 @@
           <a class="nav-link" href="dashboard.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Products</a>
+          <a class="nav-link" href="products.php">Products</a>
         </li>
       </ul>
       <ul class="ms-auto navbar-nav">
