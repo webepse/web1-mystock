@@ -17,11 +17,33 @@
     <title>Admin - Gestion des produits</title>
 </head>
 <body>
+    <?php
+        include("partials/header.php");
+    ?>
     <div class="container">
         <h1>Ajouter un produit</h1>
         <a href="products.php" class="btn btn-secondary">Retour</a>
-       
-     
+        <form action="treatmentAddProduct.php" method="POST">
+            <div class="form-group my-3">
+                <label for="title">Titre: </label>
+                <input type="text" name="title" id="title" value="" class="form-control">
+            </div>
+            <div class="form-group my-3">
+                <label for="description">Description: </label>
+                <textarea name="description" id="description" class="form-control"></textarea>
+            </div>
+            <div class="form-group my-3">
+                <label for="date">Date: </label>
+                <input type="date" name="date" id="date" class='form-control' value=''>
+            </div>
+            <div class="form-group my-3">
+                <label for="price">Prix: </label>
+                <input type="number" name="price" id="price" step="0.01" value="" class="form-control">
+            </div>
+            <div class="form-group my-3">
+                <input type="submit" value="Ajouter" class="btn btn-success">
+            </div>
+        </form>
     </div>    
 </body>
 </html>
