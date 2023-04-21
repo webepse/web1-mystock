@@ -1,0 +1,58 @@
+<?php 
+    session_start();
+
+    // sécurité de connexion
+    if(!isset($_SESSION['login']))
+    {
+        header("LOCATION:index.php");
+    }
+
+    // sécurité d'envoie de form
+    if(isset($_POST['title']))
+    {
+        // éval des données avant insertion
+        $err = 0;
+        if(empty($_POST['title']))
+        {
+            $err=1;
+        }else{
+            $title = htmlspecialchars($_POST['title']);
+        }
+
+        if(empty($_POST['description']))
+        {
+            $err=2;
+        }else{
+            $description= htmlspecialchars($_POST['description']);
+        }
+
+        if(empty($_POST['date']))
+        {
+            $err=3;
+        }else{
+            $date = htmlspecialchars($_POST['date']);
+        }
+
+        if(empty($_POST['price']))
+        {
+            $err=4;
+        }else{
+            $price = htmlspecialchars($_POST['price']);
+        }
+
+        // test si err 
+        if($err == 0)
+        {
+            // traitement
+        }else{
+            header("LOCATION:addProduct.php?error=".$err);
+        }
+
+    }else{
+        // redirection 
+        header("LOCATION:addProduct.php");
+    }
+
+
+
+?>
