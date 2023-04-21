@@ -44,6 +44,17 @@
         if($err == 0)
         {
             // traitement
+            require "../connexion.php";
+            $insert = $bdd->prepare("INSERT INTO products(title,description,date,price) VALUES(:titre,:descri,:date,:prix)");
+            $insert->execute([
+                ":titre" => $title,
+                ":descri" => $description,
+                ":date" => $date,
+                ":prix" => $price
+            ]);
+            $insert->closeCursor();
+            header("LOCATION:products.php?add=success");
+
         }else{
             header("LOCATION:addProduct.php?error=".$err);
         }

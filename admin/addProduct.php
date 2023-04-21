@@ -24,6 +24,12 @@
         <h1>Ajouter un produit</h1>
         <a href="products.php" class="btn btn-secondary">Retour</a>
         <form action="treatmentAddProduct.php" method="POST">
+            <?php
+                if(isset($_GET['error']))
+                {
+                    echo "<div class='alert alert-danger'>Une erreur est survenue (code erreur: ".$_GET['error'].")</div>";
+                }
+            ?>
             <div class="form-group my-3">
                 <label for="title">Titre: </label>
                 <input type="text" name="title" id="title" value="" class="form-control">

@@ -21,6 +21,13 @@
         <h1>Administration des produits</h1>
         <a href="dashboard.php" class="btn btn-secondary">Retour</a>
         <a href="addProduct.php" class="btn btn-primary mx-3">Ajouter un produit</a>
+        <?php 
+            if(isset($_GET['add']))
+            {
+                echo "<div class='alert alert-success my-3'>Votre produit a bien été ajoutée à la base de données</div>";
+            }
+
+        ?>
         <table class="table table-striped">
             <thead>
                 <tr>
