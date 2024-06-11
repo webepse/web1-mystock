@@ -5,6 +5,26 @@
         header("LOCATION:index.php");
     }
     require "../connexion.php";
+
+
+    if(isset($_GET['delete']))
+    {
+        $id = htmlspecialchars($_GET['delete']);
+        $verif = $bdd->prepare("SELECT * FROM stock WHERE id=?");
+        $verif->execute([$id]);
+        $donV = $verif->fetch();
+        $verif->closeCursor();
+        if(!$donV)
+        {
+            header("LOCATION:products.php");
+        }
+
+        $delete = $bdd->prepare("DELETE FROM stock WHERE id=?");
+        $delete->execute([$id]);
+        $delete->closeCursor();
+        header("LOCATION:products.php?deletesuccess=".$id);
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +53,10 @@
                 if(isset($_GET['update']))
                 {
                     echo "<div class='alert alert-warning'>Vous avez bien modifié le produit n°".$_GET['update']."</div>";
+                }
+                if(isset($_GET['deletesuccess']))
+                {
+                    echo "<div class='alert alert-danger'>Vous avez bien supprimé le produit n°".$_GET['deletesuccess']."</div>";
                 }
             ?>
             <table class="table table-striped">
