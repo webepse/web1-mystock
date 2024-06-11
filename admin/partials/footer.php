@@ -1,0 +1,1 @@
+<footer class="bg-dark text-white text-center">&copy; EPSE 2024</footer>
