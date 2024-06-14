@@ -29,7 +29,7 @@
                     echo "<div class='alert alert-danger'>Une erreur est survenue (code erreur: ".$_GET['error'].")</div>";
                 }
             ?>
-            <form action="treatmentAddProduct.php" method="POST">
+            <form action="treatmentAddProduct.php" method="POST" enctype="multipart/form-data">
                 <div class="form-group my-3">
                     <label for="title">Titre: </label>
                     <input type="text" name="title" id="title" class="form-control" required>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-group my-3">
                     <label for="fichier">Fichier: </label>
-                    <input type="text" name="fichier" id="fichier" class="form-control">
+                    <input type="file" name="fichier" id="fichier" class="form-control">
                 </div>
                 <div class="form-group my-3">
                     <input type="submit" value="Ajouter" class="btn btn-primary">
