@@ -11,11 +11,13 @@
 </head>
 <body>
     <?php
-        $req = $bdd->query("SELECT id,title FROM stock");
+        $req = $bdd->query("SELECT id,title,image FROM stock");
         while($don = $req->fetch())
         {
-            var_dump($don);
-            echo "<div><a href='produit.php?id=".$don['id']."'>".$don['title']."</a></div>";
+            echo "<div>";
+                echo "<img src='images/".$don['image']."' alt='image de ".$don['title']."'>";
+                echo "<a href='produit.php?id=".$don['id']."'>".$don['title']."</a>";
+            echo "</div>";
         }
         $req->closeCursor();
     ?>
