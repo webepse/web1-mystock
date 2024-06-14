@@ -19,6 +19,9 @@
             header("LOCATION:products.php");
         }
 
+        // supprimer image
+        unlink("../images/".$donV['image']);
+
         $delete = $bdd->prepare("DELETE FROM stock WHERE id=?");
         $delete->execute([$id]);
         $delete->closeCursor();
