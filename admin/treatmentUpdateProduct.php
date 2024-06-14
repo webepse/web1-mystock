@@ -65,6 +65,12 @@ if(isset($_POST['title']))
     // vérif s'il y a eu une erreur 
     if($error == 0)
     {
+        // je n'ai pas d'image donc modif sans gèrer l'image
+        
+        // j'ai une image donc modif avec image 
+
+        
+
         // insertion a la base de données
        
         $update = $bdd->prepare("UPDATE stock SET title=:titre, date=:date, description=:description, image=:image WHERE id=:id");

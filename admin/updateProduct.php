@@ -55,7 +55,7 @@
                     echo "<div class='alert alert-danger'>Une erreur est survenue (code erreur: ".$_GET['error'].")</div>";
                 }
             ?>
-            <form action="treatmentUpdateProduct.php?id=<?= $id ?>" method="POST">
+            <form action="treatmentUpdateProduct.php?id=<?= $id ?>" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?= $id ?>">
                 <div class="form-group my-3">
                     <label for="title">Titre: </label>
@@ -70,8 +70,11 @@
                     <textarea name="description" id="description" class="form-control"><?= $don['description'] ?></textarea>
                 </div>
                 <div class="form-group my-3">
+                    <div class="col-3">
+                        <img src="../images/<?= $don['image'] ?>" alt="image de <?= $don['title'] ?>" class="img-fluid">
+                    </div>
                     <label for="fichier">Fichier: </label>
-                    <input type="text" name="fichier" id="fichier" value="<?= $don['image'] ?>" class="form-control">
+                    <input type="file" name="fichier" id="fichier" class="form-control">
                 </div>
                 <div class="form-group my-3">
                     <input type="submit" value="Modifier" class="btn btn-warning">
