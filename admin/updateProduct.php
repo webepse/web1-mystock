@@ -73,7 +73,7 @@
                     <div class="col-3">
                         <img src="../images/<?= $don['image'] ?>" alt="image de <?= $don['title'] ?>" class="img-fluid">
                     </div>
-                    <label for="fichier">Fichier: </label>
+                    <label for="fichier">Modifier le fichier: </label>
                     <input type="file" name="fichier" id="fichier" class="form-control">
                 </div>
                 <div class="form-group my-3">
