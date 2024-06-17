@@ -43,6 +43,15 @@
                     <textarea name="description" id="description" class="form-control"></textarea>
                 </div>
                 <div class="form-group my-3">
+                    <label for="categorie">Catégorie: </label>
+                    <select name="categorie" id="categorie" class="form-control">
+                        <option value="1">Catégorie 1</option>
+                        <option value="2">Catégorie 2</option>
+                        <option value="3">Catégorie 3</option>
+                        <option value="4">Catégorie 4</option>
+                    </select>
+                </div>
+                <div class="form-group my-3">
                     <label for="fichier">Fichier: </label>
                     <input type="file" name="fichier" id="fichier" class="form-control">
                 </div>
