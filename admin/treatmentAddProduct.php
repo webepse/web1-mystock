@@ -35,6 +35,19 @@ if(isset($_POST['title']))
         $description= htmlspecialchars($_POST['description']);
     }
 
+    if(empty($_POST['categorie']))
+    {
+        $error = 4;
+    }else{
+        $categorie = htmlspecialchars($_POST['categorie']);
+        $categories = ["1","2","3","4"];
+        if(!in_array($categorie, $categories))
+        {
+            $error = 5;
+        }
+
+    }
+
 
     // vérif s'il y a eu une erreur 
     if($error == 0)
@@ -76,12 +89,13 @@ if(isset($_POST['title']))
                       // insertion a la base de données
                         // connexion à la bdd
                         require "../connexion.php";
-                        $insert = $bdd->prepare("INSERT INTO stock(title,date,description,image) VALUES(:titre,:date,:description,:image)");
+                        $insert = $bdd->prepare("INSERT INTO stock(title,date,description,image,categorie) VALUES(:titre,:date,:description,:image,:categorie)");
                         $insert->execute([
                             ":titre"=>$title,
                             ":description" => $description,
                             ":date"=>$date,
-                            ":image"=>$fichiercpt
+                            ":image"=>$fichiercpt,
+                            ":categorie"=>$categorie
                         ]);
                         $insert->closeCursor();
                         header("LOCATION:products.php?add=success");

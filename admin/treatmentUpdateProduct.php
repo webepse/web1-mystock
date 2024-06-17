@@ -56,6 +56,19 @@ if(isset($_POST['title']))
         $description= htmlspecialchars($_POST['description']);
     }
 
+    if(empty($_POST['categorie']))
+    {
+        $error = 4;
+    }else{
+        $categorie = htmlspecialchars($_POST['categorie']);
+        $categories = ["1","2","3","4"];
+        if(!in_array($categorie, $categories))
+        {
+            $error = 5;
+        }
+
+    }
+
 
     // vérif s'il y a eu une erreur 
     if($error == 0)
@@ -64,11 +77,12 @@ if(isset($_POST['title']))
         
         if($_FILES['fichier']['error']==4)
         {
-            $update = $bdd->prepare("UPDATE stock SET title=:titre, date=:date, description=:description WHERE id=:id");
+            $update = $bdd->prepare("UPDATE stock SET title=:titre, date=:date, description=:description, categorie=:cat WHERE id=:id");
             $update->execute([
                 ":titre"=>$title,
                 ":description" => $description,
                 ":date"=>$date,
+                ":cat" => $categorie,
                 ":id" => $id
             ]);
             $update->closeCursor();

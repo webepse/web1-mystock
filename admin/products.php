@@ -68,6 +68,7 @@
                         <th>id</th>
                         <th>nom</th>
                         <th>date</th>
+                        <th>Catégorie</th>
                         <th class="text-center">Action</th>
                     </tr>
                 </thead>
@@ -76,10 +77,29 @@
                         $req = $bdd->query("SELECT * FROM stock");
                         while($don = $req->fetch())
                         {
+                            
+
+
                             echo "<tr>";
                                 echo "<td>".$don['id']."</td>";
                                 echo "<td>".$don['title']."</td>";
                                 echo "<td>".$don['date']."</td>";
+                                echo "<td>";
+                                    switch($don['categorie'])
+                                    {
+                                        case 1:
+                                            echo "Catégorie 1";
+                                        break;
+                                        case 2:
+                                            echo "Catégorie 2";
+                                        break;
+                                        case 3: 
+                                            echo "Catégorie 3";
+                                        break;
+                                        case 4: 
+                                            echo "Catégorie 4";            
+                                    }
+                                echo "</td>";
                                 echo "<td class='text-center'>";
                                     echo "<a href='updateProduct.php?id=".$don['id']."' class='btn btn-warning'>Modifier</a>";
                                     echo "<a href='products.php?delete=".$don['id']."' class='btn btn-danger mx-2'>Supprimer</a>";

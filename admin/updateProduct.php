@@ -70,6 +70,24 @@
                     <textarea name="description" id="description" class="form-control"><?= $don['description'] ?></textarea>
                 </div>
                 <div class="form-group my-3">
+                    <label for="categorie">Catégorie: </label>
+                    <select name="categorie" id="categorie" class="form-control">
+                        <?php
+                            $categories = [
+                                "1" => "Catégorie 1",
+                                "2" => "Catégorie 2",
+                                "3" => "Catégorie 3",
+                                "4" => "Catégorie 4",
+                            ];
+                            foreach($categories as $value => $name)
+                            {
+                                $selected = ($value == $don['categorie'])? 'selected' : '';
+                                echo "<option value='".$value."' ".$selected.">".$name."</option>";
+                            }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group my-3">
                     <div class="col-3">
                         <img src="../images/<?= $don['image'] ?>" alt="image de <?= $don['title'] ?>" class="img-fluid">
                     </div>
