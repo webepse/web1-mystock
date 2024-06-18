@@ -73,18 +73,13 @@
                     <label for="categorie">Catégorie: </label>
                     <select name="categorie" id="categorie" class="form-control">
                         <?php
-                            $categories = [
-                                "1" => "Catégorie 1",
-                                "2" => "Catégorie 2",
-                                "3" => "Catégorie 3",
-                                "4" => "Catégorie 4",
-                            ];
-                            foreach($categories as $value => $name)
+                            $categorie = $bdd->query("SELECT * FROM categories");
+                            while($donCat = $categorie->fetch())
                             {
-                                // if ()? else :                            ternaire
-                                $selected = ($value == $don['categorie'])? 'selected' : '';
-                                echo "<option value='".$value."' ".$selected.">".$name."</option>";
+                                $selected = ($donCat['id'] == $don['categorie'])? 'selected' : '';
+                                echo "<option value='".$donCat['id']."' ".$selected.">".$donCat['nom']."</option>";
                             }
+                            $categorie->closeCursor();
                         ?>
                     </select>
                 </div>
