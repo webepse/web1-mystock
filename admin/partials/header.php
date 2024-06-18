@@ -13,6 +13,9 @@
           <a class="nav-link" href="products.php">Produits</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="categories.php">Catégorie</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="#">Commentaires</a>
         </li>
         </ul>

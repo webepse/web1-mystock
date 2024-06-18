@@ -81,6 +81,7 @@
                             ];
                             foreach($categories as $value => $name)
                             {
+                                // if ()? else :                            ternaire
                                 $selected = ($value == $don['categorie'])? 'selected' : '';
                                 echo "<option value='".$value."' ".$selected.">".$name."</option>";
                             }
